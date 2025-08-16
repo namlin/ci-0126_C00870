@@ -1,8 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "My first view";
+    string author = "Josué David Badilla Paredes";
+    uint age = 21;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html>
+<head>
+    <!-- Include CSS style sheet: -->
+    <link href="./Shared/_Layout.cshtlm.css" type="text/css" rel="stylesheet" />
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <h1>Modifying a view:</h1>
+        <p>
+            <strong>I am: </strong> @author<br />
+            I'm: <input type= "number" value="@age", placeholder="Type your age:"/>
+        </p>
+    </div>
+</body>
+
+</html>

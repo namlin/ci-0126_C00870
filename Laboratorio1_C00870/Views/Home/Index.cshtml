@@ -6,9 +6,6 @@
 
 <html>
 <head>
-    <!-- Include CSS style sheet: -->
-    <link href="./Shared/_Layout.cshtlm.css" type="text/css" rel="stylesheet" />
-
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -16,9 +13,15 @@
         <h1>Modifying a view:</h1>
         <p>
             <strong>I am: </strong> @author<br />
-            I'm: <input type= "number" value="@age", placeholder="Type your age:"/>
+            I'm: <input type="number" value="@age" , placeholder="Type your age:" />
         </p>
     </div>
+
+    <div>
+        <label>My ID is: </label>
+        <input type="number" placeholder="Type your ID" />
+    </div>
+
 </body>
 
 </html>

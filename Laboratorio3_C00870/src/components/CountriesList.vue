@@ -1,7 +1,18 @@
 <template>
     <div class="container mt-5">
         <h1 class="display-4 text-center">Lista de países</h1>
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+
+        <div class="row justify-content-end">
+            <div class="col-2">
+                <a href="/country">
+                    <button type="button" class="btn btn-outline-secondary float-right">
+                        Agregar País
+                    </button>
+                </a>
+            </div>
+        </div>
+
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -23,33 +34,44 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+        </table>
     </div>
-
 </template>
 
 <script>
-export default {
-    name: "CountriesList",
+import axios from "axios";
+    export default {
+        name: "CountriesList",
 
-    data() {
-        return {
-            countries: [
-                { name: "Costa Rica", continent: "América", language: "Español" },
-                { name: "Japón", continent: "Asia", language: "Japonés" },
-                { name: "Corea del Norte", continent: "Asia", language: "Coreano" },
-                { name: "Italia", continent: "Europa", language: "Italiano" },
-                { name: "Alemania", continent: "Europa", language: "Alemán" },
-            ],
-        };
-    },
+        data() {
+            return {
+                countries: [
+                    { name: "Costa Rica", continent: "América", language: "Español" },
+                    { name: "Japón", continent: "Asia", language: "Japonés" },
+                    { name: "Corea del Norte", continent: "Asia", language: "Coreano" },
+                    { name: "Italia", continent: "Europa", language: "Italiano" },
+                    { name: "Alemania", continent: "Europa", language: "Alemán" },
+                ],
+            };
+        },
 
-    methods: {
-        eliminarPais(index) {
-            this.countries.splice(index, 1);
-        }
-   }        
-}
+        methods: {
+            eliminarPais(index) {
+                this.countries.splice(index, 1);
+            },
+
+            getCountries() {
+                // axios.get("https://localhost:7019/api/country").then((response) => {
+                axios.get("https://localhost:7049/api/Country").then((response) => {
+                    this.countries = response.data;
+                });
+            },
+
+        },
+        created: function () {
+            this.getCountries();
+        },
+    };
 
 </script>
 

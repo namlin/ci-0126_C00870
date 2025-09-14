@@ -18,5 +18,22 @@ namespace backend_lab.Controllers {
         public List<CountryModel> Get() {
             return countryService.GetCountries();
         }
+
+        [HttpPost]
+        public async Task<ActionResult<bool>>CreateCountry(CountryModel country) {
+            if (country == null) {
+                return BadRequest();
+            }
+
+            var result = countryService.CreateCountry(country);
+
+            if (string.IsNullOrEmpty(result)) {
+                return Ok(true);
+            }
+
+            else {
+                return BadRequest(result);
+            }
+        }
     }
 }

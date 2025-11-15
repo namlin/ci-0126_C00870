@@ -30,7 +30,6 @@
                 <td>
                     <button class="btn btn-secondary btn-sm">Editar</button>
                     <button class="btn btn-danger btn-sm" @click="eliminarPais(index)">Eliminar</button>
-
                 </td>
             </tr>
         </tbody>
@@ -61,13 +60,13 @@ import axios from "axios";
             },
 
             getCountries() {
-                // axios.get("https://localhost:7019/api/country").then((response) => {
                 axios.get("https://localhost:7049/api/Country").then((response) => {
                     this.countries = response.data;
                 });
             },
 
         },
+
         created: function () {
             this.getCountries();
         },

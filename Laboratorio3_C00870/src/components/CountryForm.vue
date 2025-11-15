@@ -66,9 +66,7 @@ export default {
         saveCountry() {
             console.log("Datos a guardar: ", this.formData);
 
-            axios
-            //.post("http://localhost:7019/api/Country", {
-            .post("https://localhost:7049/api/Country", {
+            axios.post("https://localhost:7049/api/Country", {
                 Name: this.formData.Name,
                 Continent: this.formData.Continent,
                 Language: this.formData.Language,

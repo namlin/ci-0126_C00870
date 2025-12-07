@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <p><strong>Total ingresado:</strong> {{ payment.totalAmount }} colones</p>
+    <p><strong>Total:</strong> {{ payment.totalAmount }} colones</p>
 
     <hr/>
 

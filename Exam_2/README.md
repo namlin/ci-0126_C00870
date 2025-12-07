@@ -1,6 +1,7 @@
 # Exam 2 - Part 2:
 
 - Josué David Badilla Paredes - C00870
+- [Source code](https://github.com/namlin/ci-0126_C00870)
 
 
 ### Class diagram created after the refactor:

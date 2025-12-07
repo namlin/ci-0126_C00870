@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+using ExamTwo.Models;
 using ExamTwo.Services;
 
 namespace ExamTwo.Controllers
@@ -27,6 +28,24 @@ namespace ExamTwo.Controllers
     [HttpGet("getCoinInventory")]
     public ActionResult<Dictionary<int, int>> GetCoinInventory() {
       return Ok(this.coffeeMachineService.GetCoinInventory());
+    }
+
+    [HttpPost("buyCoffee")]
+    public IActionResult BuyCoffee([FromBody] OrderRequestModel request)
+    {
+      try {
+        string message = coffeeMachineService.ProcessOrder(request);
+        return Ok(message);
+      }
+
+      catch (ArgumentException ex) {
+        return BadRequest(ex.Message);
+      }
+
+      catch (InvalidOperationException ex)
+      {
+        return StatusCode(500, ex.Message);
+      }
     }
   }
 }
